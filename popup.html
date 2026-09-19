@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    width: 340px;
+    margin: 0;
+    padding: 16px;
+    font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: #1e1e2e;
+    color: #cdd6f4;
+    font-size: 13px;
+  }
+  h1 {
+    font-size: 15px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h1::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #a6e3a1;
+    box-shadow: 0 0 6px #a6e3a1;
+  }
+  label {
+    display: block;
+    margin: 10px 0 4px;
+    font-size: 12px;
+    color: #a6adc8;
+  }
+  input[type=text], input[type=password], textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #45475a;
+    background: #313244;
+    color: #cdd6f4;
+    font-size: 12px;
+    font-family: inherit;
+    outline: none;
+  }
+  input:focus, textarea:focus { border-color: #89b4fa; }
+  textarea { resize: vertical; min-height: 60px; }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .row input[type=checkbox] {
+    width: 16px; height: 16px;
+    accent-color: #89b4fa;
+  }
+  .row label { margin: 0; font-size: 13px; color: #cdd6f4; }
+  .btns {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  button {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  button.primary { background: #89b4fa; color: #1e1e2e; }
+  button.primary:hover { background: #b4befe; }
+  button.ghost {
+    background: transparent;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+  }
+  button.ghost:hover { background: #313244; }
+  button.green { background: #a6e3a1; color: #1e1e2e; }
+  button.green:hover { background: #94e2d5; }
+  .status {
+    margin-top: 8px;
+    font-size: 11px;
+    min-height: 14px;
+    color: #a6e3a1;
+  }
+  .divider {
+    height: 1px;
+    background: #313244;
+    margin: 14px 0;
+  }
+</style>
+</head>
+<body>
+  <h1>Motrix 接管</h1>
+
+  <label>RPC 地址</label>
+  <input type="text" id="rpc" placeholder="http://127.0.0.1:16800/jsonrpc">
+
+  <label>访问密钥</label>
+  <input type="password" id="secret" placeholder="Motrix 里设置的那个">
+
+  <div class="row">
+    <input type="checkbox" id="enabled">
+    <label for="enabled">启用自动接管下载</label>
+  </div>
+
+  <div class="btns">
+    <button class="primary" id="save">保存</button>
+    <button class="green" id="test">测试连接</button>
+  </div>
+  <div class="status" id="status"></div>
+
+  <div class="divider"></div>
+
+  <label>手动添加链接到 Motrix</label>
+  <textarea id="manualUrl" placeholder="粘贴 http / magnet 链接，每行一个"></textarea>
+  <div class="btns">
+    <button class="primary" id="addUrl">添加到下载列表</button>
+  </div>
+  <div class="status" id="addStatus"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
