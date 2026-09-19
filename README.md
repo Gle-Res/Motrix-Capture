@@ -47,11 +47,13 @@
 
 ## 目录
 
-manifest.json     扩展清单
-background.js     拦截下载、RPC 调用、右键菜单
-popup.html        弹窗界面
-popup.js          弹窗逻辑
-icon.png          图标
+| 文件 | 说明 |
+|------|------|
+| manifest.json | 扩展清单 |
+| background.js | 拦截下载、RPC 调用、右键菜单 |
+| popup.html | 弹窗界面 |
+| popup.js | 弹窗逻辑 |
+| icon.png | 图标 |
 
 ## License
 
